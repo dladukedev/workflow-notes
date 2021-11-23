@@ -100,11 +100,11 @@ class AddNoteWorkflow(
         setOutput(Output.Back)
     }
 
-    private fun onBackPressed() = action {
+    fun onBackPressed() = action {
         setOutput(Output.Back)
     }
 
-    private fun onSubmit() = action {
+    fun onSubmit() = action {
         state = State.Submitting(state.newNoteContent)
     }
 
