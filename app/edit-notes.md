@@ -1,3 +1,15 @@
+# Implementation Notes
+- Make stateful workflow
+- Stub all methods and types
+- Add Props & Output
+- Update Notes Workflow to handle back and start
+- Setup State, Output, and Screen
+- Add "on" Methods, onNoteContentChanged, onNoteUpdated, onBackPressed, onSubmit
+- Implement render function
+- inject repository and add runningWorker
+- uncomment view and add to MainActivity
+- implement snapshotState and update initialState
+
 # Main Activity
     EditNoteWorkflow.View
 
