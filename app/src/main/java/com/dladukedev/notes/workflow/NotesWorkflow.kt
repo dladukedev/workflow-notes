@@ -93,36 +93,7 @@ class NotesWorkflow : StatefulWorkflow<Unit, NotesWorkflow.State, Nothing, BackS
                 backstackScreens = listOf(notesListScreen, noteDetailsScreen)
 
             }
-            is State.ViewingEditNote -> {
-                val noteDetailsScreen = context.renderChild(
-                    NoteDetailWorkflow(),
-                    NoteDetailWorkflow.Props(renderState.noteId),
-                    "NoteDetailWorkflow${renderState.noteId}"
-                ) { output ->
-                    when (output) {
-                        NoteDetailWorkflow.Output.Back -> {
-                            onViewNotesList()
-                        }
-                        is NoteDetailWorkflow.Output.EditNote -> {
-                            onViewEditNote(output.noteId, output.noteContent)
-                        }
-                    }
-                }
 
-                val editNoteScreen = context.renderChild(
-                    EditNoteWorkflow(),
-                    EditNoteWorkflow.Props(renderState.noteId, renderState.content),
-                    "EditNoteWorkflow${renderState.noteId}"
-                ) { output ->
-                    when (output) {
-                        EditNoteWorkflow.Output.Back -> {
-                            onViewNoteDetails(renderState.noteId)
-                        }
-                    }
-                }
-
-                backstackScreens = listOf(notesListScreen, noteDetailsScreen, editNoteScreen)
-            }
         }
 
         return backstackScreens.toBackStackScreen()

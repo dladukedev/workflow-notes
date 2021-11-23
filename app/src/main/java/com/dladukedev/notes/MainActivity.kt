@@ -28,7 +28,6 @@ private val viewRegistry = ViewRegistry(
     NotesListWorkflow.View,
     NoteDetailWorkflow.View,
     AddNoteWorkflow.View,
-    EditNoteWorkflow.View
 )
 
 @WorkflowUiExperimentalApi
